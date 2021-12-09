@@ -1,5 +1,6 @@
 **Programmation Web côté client**
 # Single-Page Meteo
+Par Alain
 
 ## Objectif
 L’objectif de ce travail pratique est de :
