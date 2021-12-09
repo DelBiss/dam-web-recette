@@ -1,6 +1,6 @@
 **Programmation Web côté client**
 # Single-Page Meteo
-
+par Philippe Allard-Rousse
 ## Objectif
 L’objectif de ce travail pratique est de :
 - Réaliser une application Web ayant une certaine ampleur.
