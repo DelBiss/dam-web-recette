@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Exemple AJAX</h1>
+
+<div id="article"><p>Charger le texte ICI</p></div>
+
+<button type="button" onclick="loadDoc()">Charger le texte</button>
+
+<script>
+function loadDoc() {
+    fetch("Informatique.html")
+        .then(function(reponse){
+            // Lire le flux (stream) reponse jusqu'au bout.
+            return reponse.text(); 
+        })
+        .then(function(html){
+            document.getElementById("article").innerHTML = html;
+        });
+}
+</script>
+
+</body>
+</html>

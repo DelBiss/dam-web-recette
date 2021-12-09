@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Exemple</title>
+</head>
+
+<body>
+<h1>Exemple AJAX</h1>
+
+<div id="meteo"><p>Charger la météo ICI</p></div>
+
+<button type="button" onclick="loadMeteo()">Charger</button>
+
+<script>
+function loadMeteo() {
+  let api_key = 'xxxxxx';
+  let url = 'http://api.openweathermap.org/data/2.5/weather?q=Montreal,ca&mode=html&units=metric&appid=' + api_key;
+    fetch(url)
+    .then(reponse => reponse.text())
+    .then(function(html){
+      document.getElementById("meteo").innerHTML = html;
+    });
+}
+</script>
+
+</body>
+</html>
