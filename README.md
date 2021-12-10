@@ -1,6 +1,6 @@
 **Programmation Web côté client**
-# Single-Page Meteo
-par Philippe Allard-Rousse et Alain Bernier
+# MonoPage Recette
+**par Philippe Allard-Rousse et Alain Bernier**
 ## Objectif
 L’objectif de ce travail pratique est de :
 - Réaliser une application Web ayant une certaine ampleur.
@@ -26,6 +26,15 @@ Faire une application Web adaptative (Responsive Web Design).
 Remettre via LÉA (Omnivox) un fichier ZIP contenant les fichiers sources du projet. 
 Le 17 décembre vous devez présenter votre projet à votre enseignant.
 
+---
+## Exemple
+### Bureau
+![Exemple - Vue Principale - Bureau](/doc/images/desktop_livre.png "Exemple Bureau Principale")  
+![Exemple - Vue Detail - Bureau](/doc/images/desktop_recette.png "Exemple Bureau Detail")
+### Mobile
+
+![Exemple - Vue Principale - Mobile](/doc/images/mobile_livre.png "Exemple Mobile Principale")  
+![Exemple - Vue Detail - Mobile](/doc/images/mobile_recette.png "Exemple Mobile Detail")
 ---
 
 ## Pondération
