@@ -12,13 +12,20 @@ export default class MeteoItem {
     }
 
     render() {
-        const myCss = "meteo-item"
-        let eMain = createElementWithCSS("article", myCss);
+        fetch("index.html")
+            .then(function(reponse) {
+                return reponse.text();
+            })
+            .then(function(html) {
+                //
+            });
+        // const myCss = "meteo-item"
+        // let eMain = createElementWithCSS("article", myCss);
 
-        eMain.appendChild(this.renderLocation(myCss))
-        eMain.appendChild(this.renderCurrent(myCss))
+        // eMain.appendChild(this.renderLocation(myCss))
+        // eMain.appendChild(this.renderCurrent(myCss))
 
-        return eMain;
+        // return eMain;
     }
 
     /**
