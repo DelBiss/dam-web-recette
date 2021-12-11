@@ -1,0 +1,13 @@
+.meteo-item {
+    background-color: hsl(240, 67%, 82%);
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    display: inline-flex;
+    max-width: 200px;
+    padding: 0.5em;
+}
+
+.meteo-item-current {
+    display: flex;
+}
