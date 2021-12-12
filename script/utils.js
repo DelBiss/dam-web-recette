@@ -25,7 +25,43 @@ export function renderComponentOnBody(ComponentClass, props = null) {
     componentItem.appendChild(component.render());
 }
 
+/**
+ * 
+ * @param {HTMLElement} element - Element to fill with data
+ * @param {string} selector - DataAttribute to fill
+ * @param {*} props - Data to use
+ * @returns {HTMLElement} - Element filled with data
+ */
+export function fillDataTemplate(element, selector, props) {
+    let allDataElement = element.querySelectorAll(`[${selector}]`);
+    const datasetKey = getDatasetKeyFromSelector(selector)
+    for (var dataElement of allDataElement) {
+        let key = dataElement.dataset[datasetKey].split(".")
+        var d = props;
 
+        for (var k of key) {
+            d = d[k];
+        }
+        dataElement.textContent = d;
+    }
+    return element
+}
+
+/**
+ * @param {string} selector - Attribute used in HTML (ex: "data-meteo-item"). "data" part is optional
+ * @return {string} - Key for the dataset (ex: "meteoItem")
+ */
+export function getDatasetKeyFromSelector(selector) {
+    var selectorArray = selector.split("-")
+
+    if (selectorArray[0] == "data") {
+        selectorArray.shift()
+    }
+
+    return selectorArray.join(" ").replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
+        return index === 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');;
+}
 /**
  * @param {string} cssURL
  */
