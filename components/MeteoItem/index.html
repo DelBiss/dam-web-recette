@@ -12,12 +12,12 @@
 <body>
     <article class="meteo-item">
         <section class="meteo-item-location">
-            <p class="meteo-item-location-name">Montréal</p>
+            <p data-meteo-item="location.name" class="meteo-item-location-name">Montréal</p>
         </section>
         <section class="meteo-item-current">
-            <img src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" class="meteo-item-condition-img">
+            <img data-meteo-item="current.condition.icon" src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" class="meteo-item-condition-img">
             <section class="meteo-item-current-temps">
-                <p class="meteo-item-current-temps-temperature">-4.9</p>
+                <p data-meteo-item="current.temp_c" class="meteo-item-current-temps-temperature">-4.9</p>
             </section>
         </section>
     </article>
