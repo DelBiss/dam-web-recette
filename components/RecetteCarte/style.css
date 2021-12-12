@@ -7,8 +7,8 @@
     border-color: black;
     border-width: 1px;
     border-radius: 5px;
-    max-width: var(--card-width)
-    /* display: grid; */
+    max-width: var(--card-width);
+    display: inline-block;
     /* grid: repeat(2, 60px) / auto-flow 80px; */
 }
 
