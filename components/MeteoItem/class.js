@@ -1,31 +1,23 @@
 //@ts-check
 import { createElementWithCSS } from "../../script/utils.js";
 import { ph_MeteoItem } from "../../data/placeholder.js";
+import Component from "../cComponent/Component.js";
 
-export default class MeteoItem {
+export default class MeteoItem extends Component {
 
     /**
      * @param {any} props
      */
     constructor(props) {
+        super(props);
         this.props = props ? props : ph_MeteoItem;
+
     }
 
     render() {
-        fetch("index.html")
-            .then(function(reponse) {
-                return reponse.text();
-            })
-            .then(function(html) {
-                //
-            });
-        // const myCss = "meteo-item"
-        // let eMain = createElementWithCSS("article", myCss);
 
-        // eMain.appendChild(this.renderLocation(myCss))
-        // eMain.appendChild(this.renderCurrent(myCss))
+        return this.getElement();
 
-        // return eMain;
     }
 
     /**
