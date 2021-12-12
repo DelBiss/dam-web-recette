@@ -16,13 +16,15 @@ export function createElementWithCSS(tagName, ...cssClass) {
  * @param {{new(props:any):object,render():Node}} ComponentClass
  * @param {any} props
  */
-export function renderComponentOnBody(ComponentClass, props = null) {
+export async function renderComponentInShowcase(ComponentClass, props = null) {
     let componentItem = document.body.appendChild(createElementWithCSS("article", "component-list-item"))
     let componentTitle = componentItem.appendChild(createElementWithCSS("h2", "component-list-item-header"));
     componentTitle.textContent = ComponentClass.prototype.constructor.name
-
-    let component = new ComponentClass(props)
-    componentItem.appendChild(component.render());
+    let arrayProps = props instanceof Array ? props : [props]
+    for (const iterator of arrayProps) {
+        let component = new ComponentClass(iterator);
+        await component.render(componentItem)
+    }
 }
 
 /**
