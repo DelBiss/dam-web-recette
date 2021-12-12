@@ -11,3 +11,7 @@
 .meteo-item-current {
     display: flex;
 }
+
+.meteo-item-current-temps-temperature::after {
+    content: "℃";
+}
