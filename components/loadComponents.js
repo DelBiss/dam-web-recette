@@ -1,5 +1,5 @@
 import * as Utils from "../script/utils.js";
-import { ph_MeteoItem } from "../../data/placeholder.js";
+import { ph_MeteoItem } from "../data/placeholder.js";
 
 import MeteoItem from "./MeteoItem/class.js";
 // Utils.LoadCSS('./meteo/style.css').then(function() {
