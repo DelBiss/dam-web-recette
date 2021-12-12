@@ -9,14 +9,14 @@ export default class MeteoItem extends Component {
      * @param {any} props
      */
     constructor(props) {
-        super(props);
-        this.props = props ? props : ph_MeteoItem;
+        super(props, "meteoItem");
+        this.props = props ? props : ph_MeteoItem[0];
 
     }
 
-    render() {
+    async render() {
 
-        return this.getElement();
+        return await (await this.getElement()).body.firstElementChild;
 
     }
 

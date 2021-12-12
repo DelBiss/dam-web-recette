@@ -1,17 +1,30 @@
 //Endroit pour créé nos données placeholder en attendant d'integrer les vrais données
 
-export let ph_MeteoItem = {
-    "location": {
-        "name": "Laval"
-    },
-    "current": {
-        "temp_c": -4.6,
-        "condition": {
-            "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
+export let ph_MeteoItem = [{
+        "location": {
+            "name": "Montréaasl"
         },
-        "feelslike_c": -7
+        "current": {
+            "temp_c": -4.6,
+            "condition": {
+                "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
+            },
+            "feelslike_c": -7
+        }
+    },
+    {
+        "location": {
+            "name": "Laval"
+        },
+        "current": {
+            "temp_c": -4.6,
+            "condition": {
+                "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
+            },
+            "feelslike_c": -7
+        }
     }
-};
+];
 
 export let ph_Recettes = [{
         "id": "3",
