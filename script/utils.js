@@ -33,18 +33,42 @@ export function renderComponentOnBody(ComponentClass, props = null) {
  * @returns {HTMLElement} - Element filled with data
  */
 export function fillDataTemplate(element, selector, props) {
+
     let allDataElement = element.querySelectorAll(`[${selector}]`);
     const datasetKey = getDatasetKeyFromSelector(selector)
     for (var dataElement of allDataElement) {
+        // @ts-ignore
         let key = dataElement.dataset[datasetKey].split(".")
-        var d = props;
+        var data = props;
 
         for (var k of key) {
-            d = d[k];
+            data = data[k];
         }
-        dataElement.textContent = d;
+        if ((data instanceof Array) && (dataElement.childElementCount > 0)) {
+            let repeatElement = dataElement.firstElementChild
+            dataElement.removeChild(repeatElement)
+            for (const iterator of data) {
+                let e = applyDataToElement(repeatElement.cloneNode(), iterator)
+                dataElement.appendChild(e)
+            }
+        } else {
+            applyDataToElement(dataElement, data)
+        }
+
     }
     return element
+}
+
+export function applyDataToElement(dataElement, data) {
+    switch (dataElement.tagName) {
+        case "IMG":
+            dataElement.src = data;
+            break;
+        default:
+            dataElement.textContent = data;
+            break;
+    }
+    return dataElement
 }
 
 /**

@@ -2,7 +2,7 @@
 
 export let ph_MeteoItem = [{
         "location": {
-            "name": "Montréaasl"
+            "name": "Montréal"
         },
         "current": {
             "temp_c": -4.6,
@@ -17,11 +17,11 @@ export let ph_MeteoItem = [{
             "name": "Laval"
         },
         "current": {
-            "temp_c": -4.6,
+            "temp_c": -14.6,
             "condition": {
-                "icon": "//cdn.weatherapi.com/weather/64x64/night/113.png"
+                "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png"
             },
-            "feelslike_c": -7
+            "feelslike_c": 22
         }
     }
 ];
