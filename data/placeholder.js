@@ -33,7 +33,7 @@ export let ph_Recettes = [{
         "preptime": "15 minutes",
         "cooktime": "15 minutes",
         "yield": "4",
-        "image": "../images/img1.jpg",
+        "image": "images/img1.jpg",
         "ingredient_list": [
             "5 lb d'ailes de poulet",
             "1 tasse de sauce soya",
@@ -55,7 +55,7 @@ export let ph_Recettes = [{
         "preptime": "30 minutes",
         "cooktime": "75 minutes",
         "yield": "8",
-        "image": "../images/img2.jpg",
+        "image": "images/img2.jpg",
         "ingredient_list": [
             "250 g de fromage à la crème",
             "50 g de beurre non salé",
@@ -82,7 +82,7 @@ export let ph_Recettes = [{
         "preptime": "5 minutes",
         "cooktime": "10 minutes",
         "yield": "8",
-        "image": "../images/img3.jpg",
+        "image": "images/img3.jpg",
         "ingredient_list": [
             "500g de hauts de cuisse de poulet",
             "1 c. à thé poudre de cari",
@@ -106,7 +106,7 @@ export let ph_Recettes = [{
         "preptime": "20 minutes",
         "cooktime": "24 minutes",
         "yield": "12",
-        "image": "../images/img4.jpg",
+        "image": "images/img4.jpg",
         "ingredient_list": [
             "6 oz (180 g) de chocolat mi-amer haché",
             "1/4 t (60 ml) de beurre non salé",
@@ -138,7 +138,7 @@ export let ph_Recettes = [{
         "preptime": "20 minutes",
         "cooktime": "1 heure",
         "yield": "16",
-        "image": "../images/img5.jpg",
+        "image": "images/img5.jpg",
         "ingredient_list": [
             "5 tasses de fraises",
             "5 tasses de sucre",
@@ -159,7 +159,7 @@ export let ph_Recettes = [{
         "preptime": "20 minutes",
         "cooktime": "40 minutes",
         "yield": "4",
-        "image": "../images/img6.jpg",
+        "image": "images/img6.jpg",
         "ingredient_list": [
             "un coq de 3lb en morceaux",
             "3 c. à soupe de beurre",

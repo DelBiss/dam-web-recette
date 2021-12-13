@@ -63,8 +63,14 @@ export function fillDataTemplate(element, selector, props) {
 
 export function applyDataToElement(dataElement, data) {
     switch (dataElement.tagName) {
+
         case "IMG":
-            dataElement.src = data;
+            if ((data.startsWith("//")) || (data.startsWith("https"))) {
+                dataElement.src = data;
+            } else {
+                dataElement.src = getSiteRoot() + data;
+
+            }
             break;
         default:
             dataElement.textContent = data;
@@ -112,4 +118,14 @@ export function LoadCSS(cssURL) {
 
         };
     });
+}
+
+export function getSiteRoot() {
+    let current =
+        import.meta.url;
+    let root = current.split("/").slice(0, -2).join("/")
+    let extra = document.URL.split(root).join("")
+    let nb = extra.split("/").length - 2
+
+    return "../".repeat(nb)
 }
