@@ -10,6 +10,7 @@ export default class Component {
         this.props = props;
         this.datasetRoot = datasetRoot;
         this._htmlElement = null;
+        this.components = {};
         // this._html = null;
 
         this.loaded = {
@@ -19,6 +20,8 @@ export default class Component {
             filled: false,
             completed: false
         };
+        console.log(
+            import.meta.utl)
         this._url = new URL("../" + this.constructor.name,
             // @ts-ignore
             import.meta.url);
@@ -30,6 +33,7 @@ export default class Component {
 
         await this.loadElement()
         this.fillElement()
+        this.fillComponent()
         this.loaded.completed = true;
         return true
     }
@@ -122,6 +126,22 @@ export default class Component {
         this._element = fillDataTemplate(this.element, tagName, data);
         this.loaded.element = true
         return this.element
+    }
+
+    async fillComponent() {
+        for (const key in this.components) {
+            if (Object.hasOwnProperty.call(this.components, key)) {
+                const c = this.components[key];
+                var e = this.element.querySelector(`[data-component=${key}]`);
+                if (e != null) {
+                    await c.render(e);
+                }
+            }
+        }
+    }
+
+    addComponent(name, component) {
+        this.components[name] = component
     }
 
     /**
