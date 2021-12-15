@@ -10,6 +10,7 @@ export default class MeteoItem extends Component {
     constructor(props) {
         super(props, "data-meteo-item");
         this.props = props ? props : ph_MeteoItem[0];
+        this.city = 0;
         this.api = {
             url: "https://api.weatherapi.com/v1/current.json?key=f111c71466e14bca870155327210212%20&aqi=no&lang=fr&q=",
             default: "Montreal"
@@ -19,7 +20,9 @@ export default class MeteoItem extends Component {
 
     async load() {
         await this.fetchData()
-        return super.load()
+        await super.load()
+        this.element.addEventListener("click", () => { this.rotateData() })
+        return true
     }
 
     /**
@@ -35,5 +38,11 @@ export default class MeteoItem extends Component {
         let response = await fetch(this.api.url + q);
         this.props = await response.json();
 
+    }
+
+    async rotateData() {
+        let dataIndex = ++this.city < this.api.eventQ.length ? this.city : 0;
+        await this.fetchData(this.api.eventQ[dataIndex])
+        this.refresh()
     }
 }

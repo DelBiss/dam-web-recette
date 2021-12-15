@@ -164,4 +164,5 @@ export default class Component {
         this.fillElement()
         this.fillComponent()
     }
+
 }

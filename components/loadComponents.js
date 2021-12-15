@@ -3,7 +3,7 @@ import { ph_MeteoItem, ph_Recettes } from "../data/placeholder.js";
 
 import MeteoItem from "./MeteoItem/class.js";
 import RecetteCarte from "./RecetteCarte/recette-carte.js"
-import fetchXMLRecette from "../script/fetchXML.js";
+// import fetchXMLRecette from "../script/fetchXML.js";
 
 //Get Live Meteo
 // let response = await
@@ -15,7 +15,7 @@ Utils.renderComponentInShowcase(MeteoItem, ph_MeteoItem)
     // });
 
 
-fetchXMLRecette("/data/recettes.xml")
-    .then(function(jsonRecette) {
-        Utils.renderComponentInShowcase(RecetteCarte, jsonRecette)
-    })
+// fetchXMLRecette("/data/recettes.xml")
+//     .then(function(jsonRecette) {
+//         Utils.renderComponentInShowcase(RecetteCarte, jsonRecette)
+//     })
