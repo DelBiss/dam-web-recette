@@ -4,7 +4,7 @@ import Component from "../cComponent/Component.js";
 
 export default class RecetteCarte extends Component {
     constructor(props) {
-        super(props, "data-recette-detail");
+        super(props, "data-recette-carte");
         this.props = props ? props : ph_Recettes[0];
     }
 }
