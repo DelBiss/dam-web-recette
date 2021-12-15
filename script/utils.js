@@ -49,6 +49,7 @@ export function fillDataTemplate(element, selector, props) {
         if ((data instanceof Array) && (dataElement.childElementCount > 0)) {
             let repeatElement = dataElement.firstElementChild
             dataElement.removeChild(repeatElement)
+            dataElement.innerHTML = '';
             for (const iterator of data) {
                 let e = applyDataToElement(repeatElement.cloneNode(), iterator)
                 dataElement.appendChild(e)
