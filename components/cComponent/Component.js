@@ -20,8 +20,6 @@ export default class Component {
             filled: false,
             completed: false
         };
-        console.log(
-            import.meta.utl)
         this._url = new URL("../" + this.constructor.name,
             // @ts-ignore
             import.meta.url);
@@ -134,7 +132,8 @@ export default class Component {
                 const c = this.components[key];
                 var e = this.element.querySelector(`[data-component=${key}]`);
                 if (e != null) {
-                    await c.render(e);
+
+                    await c.renderReplace(e);
                 }
             }
         }
@@ -152,4 +151,17 @@ export default class Component {
         return elementWhere.appendChild(this.element);
     }
 
+    /**
+     * @param {HTMLElement} [elementWhere]
+     */
+    async renderReplace(elementWhere) {
+        await this.load()
+        let parentNOde = elementWhere.parentNode;
+        return parentNOde.replaceChild(this.element, elementWhere)
+    }
+
+    refresh() {
+        this.fillElement()
+        this.fillComponent()
+    }
 }
