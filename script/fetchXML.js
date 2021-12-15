@@ -2,7 +2,6 @@
 export default async function fetchXMLRecette(xmlPath) {
     let xmlFile = await fetch(xmlPath)
     let xmlText = await xmlFile.text()
-    console.log(xmlText)
     let data = [];
 
     let parser = new DOMParser();
