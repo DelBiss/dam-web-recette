@@ -1,50 +1,41 @@
 import { ph_Recettes } from "../data/placeholder.js";
 
 function search(searchTerm, data, isCategories = false) {
-  // data = ph_Recettes;
-  //////////////////////
-  //forof //loop tableau
-  //forin //loop object
-  var key = "title";
-  if (isCategories) {
-    key = "category";
-  }
-  if (searchTerm.length == 0) {
-    return "c'est vide";
-  } else {
-    //return searchTerm
-    // Voici un exemple de recherche dans un objet
-    var resultat = Array();
-    for (const recette of data) {
-      if (recette[key].toLowerCase().search(searchTerm.toLowerCase()) >= 0) 
-      {
-        resultat.push(recette);
-        console.log(resultat);
-      }
+    // data = ph_Recettes;
+    //////////////////////
+    //forof //loop tableau
+    //forin //loop object
+    var key = "title";
+    if (isCategories) {
+        key = "category";
     }
-    return resultat;
-  }
+    if (searchTerm.length == 0) {
+        return "c'est vide";
+    } else {
+        //return searchTerm
+        // Voici un exemple de recherche dans un objet
+        var resultat = Array();
+        for (const recette of data) {
+            if (recette[key].toLowerCase().search(searchTerm.toLowerCase()) >= 0) {
+                resultat.push(recette);
+                console.log(resultat);
+            }
+        }
+        return resultat;
+    }
 
-  return data[0];
-  return data;
+    return data[0];
+    return data;
 }
 
 //texte instanceof Array
+function GetCategories(data) {
+
+}
 
 function test() {
-  console.log(document.form1.recherche.value);
-  let response = search(document.form1.recherche.value, ph_Recettes, true);
-  if (response == null) {
-    document.getElementById("resp").textContent = "Reponse null";
-  } else if (response.length == 0) {
-    document.getElementById("resp").textContent = "Aucun output";
-  } else {
-    document.getElementById("resp").textContent = JSON.stringify(
-      response,
-      null,
-      2
-    );
-  }
+    document.getElementById("resp").textContent = GetCategories(ph_Recettes);
+
 }
 window.test = test;
 
