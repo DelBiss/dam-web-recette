@@ -5,6 +5,16 @@ function search(searchTerm, data, isCategories = false) {
     //////////////////////
     //forof //loop tableau
     //forin //loop object
+    
+    if (searchTerm.length==0)
+    {
+        return "c'est vide"
+    }else
+    return searchTerm
+    return data[0].title.search(searchTerm)
+    
+    
+    return data[0] 
     return data
 }
 
@@ -24,3 +34,11 @@ function test() {
 
 }
 window.test = test
+
+     
+     
+
+
+    
+
+//texte instanceof Array
