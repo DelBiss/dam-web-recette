@@ -10,6 +10,7 @@ export default class Component {
         this.props = props;
         this.datasetRoot = datasetRoot;
         this._htmlElement = null;
+        this.components = {};
         // this._html = null;
 
         this.loaded = {
@@ -30,6 +31,7 @@ export default class Component {
 
         await this.loadElement()
         this.fillElement()
+        this.fillComponent()
         this.loaded.completed = true;
         return true
     }
@@ -124,12 +126,56 @@ export default class Component {
         return this.element
     }
 
+    async fillComponent() {
+        for (const key in this.components) {
+            if (Object.hasOwnProperty.call(this.components, key)) {
+                const c = this.components[key];
+                var e = this.element.querySelector(`[data-component=${key}]`);
+                if (e != null) {
+
+                    await c.renderReplace(e);
+                }
+            }
+        }
+    }
+
+    addComponent(name, component) {
+        this.components[name] = component
+    }
+
     /**
      * @param {HTMLElement} [elementWhere]
      */
     async render(elementWhere) {
+
+        if (typeof elementWhere === 'string' || elementWhere instanceof String) {
+            elementWhere = document.getElementById(elementWhere)
+        }
+
+
         await this.load()
         return elementWhere.appendChild(this.element);
     }
+
+    /**
+     * @param {HTMLElement} [elementWhere]
+     */
+    async renderReplace(elementWhere) {
+        await this.load()
+        let parentNOde = elementWhere.parentNode;
+        return parentNOde.replaceChild(this.element, elementWhere)
+    }
+
+    refresh() {
+        this.fillElement()
+        this.fillComponent()
+    }
+
+    addClickEvent(callback) {
+        this.element.addEventListener("click", callback)
+    }
+
+
+
 
 }

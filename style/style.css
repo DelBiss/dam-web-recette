@@ -1,0 +1,28 @@
+body {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas: "header header" "nav hero" "foot foot";
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(73, 73, 66);
+}
+
+.nav {
+    grid-area: nav;
+    background-color: fuchsia;
+}
+
+.hero {
+    grid-area: hero;
+    background-color: red;
+}
+
+.foot {
+    grid-area: foot;
+    background-color: black;
+}

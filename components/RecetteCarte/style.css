@@ -9,7 +9,13 @@
     border-radius: 5px;
     max-width: var(--card-width);
     display: inline-block;
-    /* grid: repeat(2, 60px) / auto-flow 80px; */
+    margin: 15px;
+    box-shadow: inset 0 1px 1px 0 hsla(0, 0%, 100%, .15), 0 50px 100px -20px rgba(50, 50, 93, .3), 0 30px 60px -30px rgba(0, 0, 0, .5), -10px 10px 60px -10px rgba(103, 178, 111, .3);
+    transition: transform 0.5s ease;
+}
+
+.recette-cardCard:hover {
+    transform: perspective(800px) rotateX(40deg);
 }
 
 .recette-cardCard img {
