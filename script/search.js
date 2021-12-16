@@ -33,7 +33,7 @@ function search(searchTerm, data, isCategories = false) {
 
 function test() {
   console.log(document.form1.recherche.value);
-  let response = search(document.form1.recherche.value, ph_Recettes);
+  let response = search(document.form1.recherche.value, ph_Recettes, true);
   if (response == null) {
     document.getElementById("resp").textContent = "Reponse null";
   } else if (response.length == 0) {
