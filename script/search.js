@@ -10,9 +10,28 @@ function search(searchTerm, data, isCategories = false) {
     {
         return "c'est vide"
     }else
-    return searchTerm
+    //return searchTerm
+  // Voici un exemple de recherche dans un objet
     return data[0].title.search(searchTerm)
+    data[0].category.search(searchTerm)
+    data[0].preptime.search(searchTerm)
+    data[0].cooktime.search(searchTerm)
+    data[0].yield.search(searchTerm)
+    data[0].ingredient_list.search(searchTerm)
+    data[0].instruction_list.search(searchTerm)
+    // ce qu'il faut améliorer:
+
+    //on parcours le premier objet et on recçot une valeur positive ou négative on stock à la position [i]
+    //on parcours le deuxième objet et on recçot une valeur positive ou négative on stock à la position [i]  
+    // on parcours jusqu'à la fin.
     
+    // la recherche est un boolean qui vérifie si 'searchTerm' est dans l'objet
+    // Si le résultat d'une recherche dans un objet est une valeur positive
+    // on stock dans un tableau l'id de l'objet de chaque résultat valeur positive
+    // la méthode retourne un tableau ou une liste des recettes à afficher
+    
+    // Ensuite il faut rechercher dans plusieurs objets
+    // faire afficher
     
     return data[0] 
     return data
