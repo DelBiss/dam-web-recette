@@ -21,7 +21,6 @@ export default class MeteoItem extends Component {
     async load() {
         await this.fetchData()
         await super.load()
-        this.element.addEventListener("click", () => { this.rotateData() })
         return true
     }
 
@@ -41,8 +40,15 @@ export default class MeteoItem extends Component {
     }
 
     async rotateData() {
-        let dataIndex = ++this.city < this.api.eventQ.length ? this.city : 0;
-        await this.fetchData(this.api.eventQ[dataIndex])
+        this.city = ++this.city < this.api.eventQ.length ? this.city : 0;
+        console.log(this.city)
+        await this.fetchData(this.api.eventQ[this.city])
         this.refresh()
+    }
+
+    event_RotateData() {
+        return function() {
+            this.rotateData()
+        }.bind(this)
     }
 }

@@ -147,6 +147,12 @@ export default class Component {
      * @param {HTMLElement} [elementWhere]
      */
     async render(elementWhere) {
+
+        if (typeof elementWhere === 'string' || elementWhere instanceof String) {
+            elementWhere = document.getElementById(elementWhere)
+        }
+
+
         await this.load()
         return elementWhere.appendChild(this.element);
     }
@@ -164,5 +170,12 @@ export default class Component {
         this.fillElement()
         this.fillComponent()
     }
+
+    addClickEvent(callback) {
+        this.element.addEventListener("click", callback)
+    }
+
+
+
 
 }
