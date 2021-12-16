@@ -9,29 +9,21 @@ function search(searchTerm, data, isCategories = false) {
     if (searchTerm.length==0)
     {
         return "c'est vide"
-    }else
-    //return searchTerm
+    }else{
+    //return searchTerm   
   // Voici un exemple de recherche dans un objet
-    return data[0].title.search(searchTerm)
-    data[0].category.search(searchTerm)
-    data[0].preptime.search(searchTerm)
-    data[0].cooktime.search(searchTerm)
-    data[0].yield.search(searchTerm)
-    data[0].ingredient_list.search(searchTerm)
-    data[0].instruction_list.search(searchTerm)
-    // ce qu'il faut améliorer:
+    var resultat = Array()
+    for (const recette of data){
+        if(recette.title.search(searchTerm) >=0){
+            resultat.push(recette)
+            console.log(resultat)
+        }
+    }
+    return resultat
 
-    //on parcours le premier objet et on recçot une valeur positive ou négative on stock à la position [i]
-    //on parcours le deuxième objet et on recçot une valeur positive ou négative on stock à la position [i]  
-    // on parcours jusqu'à la fin.
+  
+}
     
-    // la recherche est un boolean qui vérifie si 'searchTerm' est dans l'objet
-    // Si le résultat d'une recherche dans un objet est une valeur positive
-    // on stock dans un tableau l'id de l'objet de chaque résultat valeur positive
-    // la méthode retourne un tableau ou une liste des recettes à afficher
-    
-    // Ensuite il faut rechercher dans plusieurs objets
-    // faire afficher les recettes correspondantes au résultats reçu par la méthode.
     
     return data[0] 
     return data
