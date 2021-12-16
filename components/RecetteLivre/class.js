@@ -8,9 +8,10 @@ export default class RecetteLivre extends Component {
     constructor(props) {
         super(props, "data-recette-livre");
         this.props = props ? props : ph_Recettes;
-        this.state = 0;
+        this.state = this.props;
         this.card = []
         this.cardElement = []
+
 
     }
 
@@ -21,12 +22,11 @@ export default class RecetteLivre extends Component {
     }
 
     async fillComponent() {
-        if (this.card.length == 0) {
-            await this.loadCard()
-        }
+
         console.log(`fillComponent: State = ${this.state}`)
-        if (this.state == 0) {
-            for (const carte of this.card) {
+        if (this.state instanceof Array) {
+            var cards = await this.GetCards()
+            for (const carte of cards) {
                 await carte.render(this.element)
             }
         } else {
@@ -37,7 +37,8 @@ export default class RecetteLivre extends Component {
         }
     }
 
-    async loadCard() {
+    async GetCards() {
+        var cards = []
         for (const recette of this.props) {
             let newCard = new RecetteCarte(recette)
             var callbackData = {
@@ -54,13 +55,55 @@ export default class RecetteLivre extends Component {
                     }.bind(callbackData)
                 )
             }
-            this.card.push(newCard)
+            cards.push(newCard)
         }
+        return cards
     }
 
     showDetail(recette) {
         this.state = recette;
         console.log("State Changed")
         this.refresh()
+    }
+
+    showRecette(recettes) {
+        this.props = recettes;
+        this.refresh()
+    }
+
+    search(searchTerm, data, isCategories = false) {
+        var key = "title";
+        if (isCategories) {
+            key = "category";
+        }
+
+        var resultat = Array();
+        if (searchTerm.length != 0) {
+
+            for (const recette of data) {
+                if (recette[key].toLowerCase().search(searchTerm.toLowerCase()) >= 0) {
+                    resultat.push(recette);
+                    console.log(resultat);
+                }
+            }
+        }
+        return resultat;
+    }
+
+    searchRecette(searchTerm) {
+
+    }
+    event_search() {
+        let callbackData = {
+            data: {
+                search: "Poulet",
+                component: this
+            },
+
+            fct: function() {
+                let recettes = this.component.search(this.)
+                this.component.showRecette
+            }
+        }
     }
 }
