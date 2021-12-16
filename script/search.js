@@ -31,7 +31,7 @@ function search(searchTerm, data, isCategories = false) {
     // la méthode retourne un tableau ou une liste des recettes à afficher
     
     // Ensuite il faut rechercher dans plusieurs objets
-    // faire afficher
+    // faire afficher les recettes correspondantes au résultats reçu par la méthode.
     
     return data[0] 
     return data
