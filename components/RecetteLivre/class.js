@@ -2,6 +2,7 @@
 import Component from "../cComponent/Component.js";
 import { ph_Recettes } from "../../data/placeholder.js";
 import RecetteCarte from "../RecetteCarte/recette-carte.js";
+import recetteDetail from "../recetteDetail/recetteDetail.js";
 
 export default class RecetteLivre extends Component {
     constructor(props) {
@@ -30,9 +31,9 @@ export default class RecetteLivre extends Component {
             }
         } else {
             this.element.innerHTML = "";
-            let e = document.createElement("pre")
-            e.innerHTML = JSON.stringify(this.state, null, 2)
-            this.element.appendChild(e)
+
+            let e = new recetteDetail(this.state);
+            await e.render(this.element)
         }
     }
 
