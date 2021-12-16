@@ -30,11 +30,19 @@ function search(searchTerm, data, isCategories = false) {
 
 //texte instanceof Array
 function GetCategories(data) {
-
+    
+    const listeCategories = new Set();
+    
+        for (const recette of data) {
+     
+            listeCategories.add(recette.category)
+        }
+    
+    return  listeCategories
 }
 
 function test() {
-    document.getElementById("resp").textContent = GetCategories(ph_Recettes);
+    document.getElementById("resp").textContent = [...GetCategories(ph_Recettes)].join(" ");
 
 }
 window.test = test;
