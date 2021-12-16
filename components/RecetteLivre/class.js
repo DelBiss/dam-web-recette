@@ -101,7 +101,7 @@ export default class RecetteLivre extends Component {
             },
 
             fct: function() {
-                let recettes = this.component.search(this.)
+                let recettes = this.component.search(this)
                 this.component.showRecette
             }
         }
