@@ -4,11 +4,13 @@ import RecetteLivre from "./components/RecetteLivre/class.js";
 import Recherche from "./components/Recherche/class.js";
 import Navigation from "./components/Navigation/class.js";
 
-let meteoMtl = new MeteoItem(ph_MeteoItem[0])
-let livre = new RecetteLivre(ph_Recettes);
+let xmlRecette = "./data/recettes.xml"
+let meteoMtl = new MeteoItem()
+let livre = new RecetteLivre(xmlRecette);
 let recherche = new Recherche();
 let nav = new Navigation();
 
+nav.setCategories(await livre.event_categories())
 recherche.setSearchCallback(livre.event_search())
 await meteoMtl.render("meteo")
 await livre.render("livre")

@@ -74,7 +74,7 @@ export function applyDataToElement(dataElement, data) {
             }
             break;
         default:
-            dataElement.textContent = data;
+            dataElement.innerHTML = data;
             break;
     }
     return dataElement
