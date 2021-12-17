@@ -2,15 +2,9 @@
     --card-with: 300px;
 }
 
-
-section {
-   
-}
-
 .detailRecette {
-background-color: #cccccc;
-
-
+    background-color: #cccccc;
+    flex-grow: 1;
 }
 
 .imageDetail {
@@ -20,10 +14,24 @@ background-color: #cccccc;
     border-width: 10px;
     border-color: rgb(247, 245, 248);
     border-radius: 5px;
-
 }
 
 .textRecette {
     margin-left: 25px;
+}
 
+.recette-detail-preptime::before {
+    content: "Temps de préparation:";
+}
+
+.recette-detail-cooktime::before {
+    content: "Temps de cuisson:";
+}
+
+.recette-detail-yield::before {
+    content: "Portion:";
+}
+
+.recette-detail-yield::after {
+    content: " personnes";
 }
