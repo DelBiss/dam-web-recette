@@ -22,15 +22,14 @@ export default class RecetteLivre extends Component {
     }
 
     async fillComponent() {
-
-        console.log(`fillComponent: State = ${this.state}`)
+        this.element.innerHTML = "";
         if (this.state instanceof Array) {
             var cards = await this.GetCards()
             for (const carte of cards) {
                 await carte.render(this.element)
             }
         } else {
-            this.element.innerHTML = "";
+
 
             let e = new recetteDetail(this.state);
             await e.render(this.element)
@@ -39,39 +38,33 @@ export default class RecetteLivre extends Component {
 
     async GetCards() {
         var cards = []
-        for (const recette of this.props) {
+        for (const recette of this.state) {
             let newCard = new RecetteCarte(recette)
-            var callbackData = {
-                component: this,
-                data: recette
-            }
+                // var callbackData = {
+                //     component: this,
+                //     data: recette
+                // }
             if (await newCard.load()) {
-                newCard.addClickEvent(
-                    function() {
-                        console.log("=========")
-                        console.log(this.data)
-                        console.log(this.component)
-                        this.component.showDetail(this.data)
-                    }.bind(callbackData)
+                let callback = this.createCallback(
+                    function(e) {
+                        console.log(e)
+                        this.context.component.showRecette(this.data)
+                    },
+                    recette
                 )
+                newCard.addEvent('click', callback)
             }
             cards.push(newCard)
         }
         return cards
     }
 
-    showDetail(recette) {
-        this.state = recette;
-        console.log("State Changed")
-        this.refresh()
-    }
-
     showRecette(recettes) {
-        this.props = recettes;
+        this.state = recettes;
         this.refresh()
     }
 
-    search(searchTerm, data, isCategories = false) {
+    search(searchTerm, isCategories = false) {
         var key = "title";
         if (isCategories) {
             key = "category";
@@ -80,30 +73,28 @@ export default class RecetteLivre extends Component {
         var resultat = Array();
         if (searchTerm.length != 0) {
 
-            for (const recette of data) {
+            for (const recette of this.props) {
                 if (recette[key].toLowerCase().search(searchTerm.toLowerCase()) >= 0) {
                     resultat.push(recette);
-                    console.log(resultat);
+
                 }
             }
+        } else {
+            return this.props
         }
         return resultat;
     }
 
-    searchRecette(searchTerm) {
 
-    }
+
     event_search() {
-        let callbackData = {
-            data: {
-                search: "Poulet",
-                component: this
-            },
+        return this.createCallback(
+            function(e) {
+                let livre = this.context.component
+                let searchResult = livre.search(this.context.target.searchTerm, this.data.isCategories)
+                livre.showRecette(searchResult)
+            }, { isCategories: false }
+        )
 
-            fct: function() {
-                let recettes = this.component.search(this)
-                this.component.showRecette
-            }
-        }
     }
 }

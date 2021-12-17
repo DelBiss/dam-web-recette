@@ -9,6 +9,7 @@ let livre = new RecetteLivre(ph_Recettes);
 let recherche = new Recherche();
 let nav = new Navigation();
 
+recherche.setSearchCallback(livre.event_search())
 await meteoMtl.render("meteo")
 await livre.render("livre")
 await recherche.render("search")

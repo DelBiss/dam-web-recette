@@ -171,11 +171,26 @@ export default class Component {
         this.fillComponent()
     }
 
-    addClickEvent(callback) {
-        this.element.addEventListener("click", callback)
+    addEvent(event, callback) {
+        callback.context.target = this;
+        this.element.addEventListener(event, callback)
     }
 
+    addClickEvent(callback) {
+        this.element.addEventListener("click", callback)
+            // this.addEvent("click", callback);
+    }
 
+    createCallback(fct, data = null) {
+        return {
+            handleEvent: fct,
+            context: {
+                component: this,
+                target: null
+            },
+            data: data
+        }
+    }
 
 
 }
