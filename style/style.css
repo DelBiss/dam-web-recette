@@ -44,6 +44,8 @@ body {
 
 .foot {
     grid-area: foot;
-    background-color: black;
-    color: white;
+    text-align: center;
+    padding-top: 20px;
+    background-color: rgb(73, 73, 66);
+    color: blanchedalmond;
 }
